@@ -1,0 +1,52 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Node",
+"class": "PlayerController",
+"language": "GDScript",
+"path": "res://dots/PlayerController.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "ScannableBody",
+"language": "GDScript",
+"path": "res://dots/Scannable.gd"
+} ]
+_global_script_class_icons={
+"PlayerController": "",
+"ScannableBody": ""
+}
+
+[application]
+
+config/name="Ld 51"
+run/main_scene="res://SandboxScene.tscn"
+config/icon="res://icon.png"
+
+[display]
+
+window/size/width=600
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
+[layer_names]
+
+2d_physics/layer_1="green_arrows"
+2d_physics/layer_2="red_stars"
+2d_physics/layer_3="scan_area"
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+quality/driver/driver_name="GLES2"
+environment/default_environment="res://default_env.tres"

@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://dots/Dot.tscn" type="PackedScene" id=1]
+[ext_resource path="res://dots/PlayerController.gd" type="Script" id=2]
+[ext_resource path="res://scanner/ScanArea.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scanner/RadarScanner.gd" type="Script" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "scanner_rotating"
+length = 10.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5, 10, 10.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 180.0, 360.0, 359.0 ]
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Dot" parent="." instance=ExtResource( 1 )]
+position = Vector2( 262, 111 )
+
+[node name="PlayerController" type="Node" parent="Dot"]
+script = ExtResource( 2 )
+
+[node name="RadarScanner" type="Node2D" parent="."]
+position = Vector2( 300, 300 )
+script = ExtResource( 4 )
+
+[node name="Polygon2D" type="Polygon2D" parent="RadarScanner"]
+polygon = PoolVector2Array( -2, 0, -5, -500, 5, -500, 2, 0 )
+
+[node name="ScanArea" parent="RadarScanner" instance=ExtResource( 3 )]
+position = Vector2( 1, -1 )
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RadarScanner/ScanArea"]
+polygon = PoolVector2Array( -6, 0, -196, -486, -18, -499 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../RadarScanner")
+autoplay = "scanner_rotating"
+playback_process_mode = 0
+anims/scanner_rotating = SubResource( 1 )
