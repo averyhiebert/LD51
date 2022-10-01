@@ -1,5 +1,4 @@
-# Should be attached as a child of a kinematic body.
-# Allows said kinematic body to be controlled by the player.
+# Assumes that parent is a ScannableBody
 
 class_name PlayerController
 
@@ -10,6 +9,7 @@ const ACCELERATION = 500 * Engine.iterations_per_second
 const DAMPING = 0.95
 
 var velocity = Vector2(0,0)
+var dying = false
 
 var player = null
 
@@ -20,6 +20,9 @@ func _ready():
 	
 func handle_key_input(delta):
 	var heading = Vector2(0,0)
+	
+	if dying:
+		return heading # No steering while dying.
 	
 	if Input.is_action_pressed("ui_left"):
 		heading.x = -1
@@ -44,9 +47,16 @@ func _process(delta):
 	velocity = velocity + heading.normalized()*ACCELERATION*delta
 	velocity = velocity * DAMPING
 	
-	# warning-ignore:return_value_discarded
-	player.move_and_slide(velocity*delta,Vector2(0,-1))
 	player.set_rotation(velocity.angle())
+	player.move_and_slide(velocity*delta,Vector2(0,-1))
+	
+	for i in player.get_slide_count():
+		var collision = player.get_slide_collision(i)
+		if collision.collider.is_hazardous:
+			player_die()
 
 func player_die():
+	dying = true
 	print("Player died")
+	yield(get_tree().create_timer(0.5), "timeout")
+	get_tree().reload_current_scene()

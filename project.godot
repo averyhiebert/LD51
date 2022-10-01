@@ -12,12 +12,12 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "PlayerController",
 "language": "GDScript",
-"path": "res://dots/PlayerController.gd"
+"path": "res://entities/PlayerController.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "ScannableBody",
 "language": "GDScript",
-"path": "res://dots/Scannable.gd"
+"path": "res://entities/Scannable.gd"
 } ]
 _global_script_class_icons={
 "PlayerController": "",
@@ -41,6 +41,7 @@ window/stretch/aspect="keep"
 2d_physics/layer_1="green_arrows"
 2d_physics/layer_2="red_stars"
 2d_physics/layer_3="scan_area"
+2d_physics/layer_4="ghosts"
 
 [physics]
 
