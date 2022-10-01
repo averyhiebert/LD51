@@ -6,6 +6,8 @@ extends KinematicBody2D
 
 export var is_ghost = false
 export var is_hazardous = false
+export var can_activate = false
+export var exit_to: Resource = null # Scene to exit to when touched by player
 
 signal died
 
@@ -27,7 +29,7 @@ func _ready():
 	
 	if is_ghost:
 		collision_layer = 0 # No collide with anything (?)
-		image.color.a = 0.5 # Should be transparent (TODO FADE OUT)
+		#image.color.a = 0.5 # Should be transparent (TODO FADE OUT)
 	else:
 		# Invisible by default
 		visible = false
@@ -58,10 +60,35 @@ func create_ghost():
 	# Make all modified properties match:
 	new_node.transform = transform
 	
-	# TODO Make it fade out and die after 10 seconds.
-	
 	# Add to scene.
 	get_parent().add_child(new_node)
+	
+	# Make ghost fade out over 10 seconds
+	#  Must happen AFTER ghost enters tree (so new_node.image isn't nil)
+	if not new_node.image:
+		new_node.queue_free()
+		return # Hack to fix edge case when player dies & resets scene, I guess.
+	var c = new_node.image.color
+	var start_color = Color(c.r,c.g,c.b,1)
+	var end_color = Color(c.r,c.g,c.b,0.15)
+	var tween = Tween.new()
+	tween.playback_process_mode = tween.TWEEN_PROCESS_IDLE
+	add_child(tween)
+	tween.interpolate_property(new_node.image, "color",
+		start_color, end_color, 9, Tween.TRANS_QUART, Tween.EASE_OUT)
+	tween.start()
+	
+	# Delete after 10 seconds
+	yield(get_tree().create_timer(9), "timeout")
+	new_node.queue_free()
+
+func activate(player):
+	# Generic function for activating effects when hit by player
+	if exit_to:
+		player.skip_physics = true
+		print("Level exit reached")
+		yield(get_tree().create_timer(1), "timeout")
+		get_tree().change_scene_to(exit_to)
 
 func die():
 	emit_signal("died")

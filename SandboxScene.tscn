@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scanner/RadarScanner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/PlayerController.gd" type="Script" id=2]
 [ext_resource path="res://entities/SpaceMine.tscn" type="PackedScene" id=3]
+[ext_resource path="res://entities/Exit.tscn" type="PackedScene" id=4]
 [ext_resource path="res://entities/GreenArrow.tscn" type="PackedScene" id=5]
+[ext_resource path="res://levels/DummyLevel.tscn" type="PackedScene" id=6]
 
 [node name="Node2D" type="Node2D"]
 
@@ -24,31 +26,26 @@ position = Vector2( 247, 82 )
 script = ExtResource( 2 )
 
 [node name="SpaceMine" parent="." instance=ExtResource( 3 )]
-position = Vector2( 401, 186 )
+position = Vector2( 329, 118 )
 
 [node name="SpaceMine2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 89, 271 )
+position = Vector2( 358, 133 )
 
 [node name="SpaceMine3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 205, 497 )
+position = Vector2( 107, 222 )
 
 [node name="SpaceMine4" parent="." instance=ExtResource( 3 )]
-position = Vector2( 346, 434 )
+position = Vector2( 264, 427 )
 
 [node name="SpaceMine5" parent="." instance=ExtResource( 3 )]
-position = Vector2( 68, 485 )
+position = Vector2( 399, 311 )
 
 [node name="SpaceMine6" parent="." instance=ExtResource( 3 )]
-position = Vector2( 139, 157 )
+position = Vector2( 139, 482 )
 
 [node name="SpaceMine7" parent="." instance=ExtResource( 3 )]
-position = Vector2( 198, 293 )
+position = Vector2( 495, 469 )
 
-[node name="SpaceMine8" parent="." instance=ExtResource( 3 )]
-position = Vector2( 469, 347 )
-
-[node name="SpaceMine9" parent="." instance=ExtResource( 3 )]
-position = Vector2( 484, 532 )
-
-[node name="SpaceMine10" parent="." instance=ExtResource( 3 )]
-position = Vector2( 472, 76 )
+[node name="Exit" parent="." instance=ExtResource( 4 )]
+position = Vector2( 398, 523 )
+exit_to = ExtResource( 6 )

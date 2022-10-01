@@ -39,7 +39,7 @@ window/stretch/aspect="keep"
 [layer_names]
 
 2d_physics/layer_1="green_arrows"
-2d_physics/layer_2="red_stars"
+2d_physics/layer_2="player_can_hit"
 2d_physics/layer_3="scan_area"
 2d_physics/layer_4="ghosts"
 

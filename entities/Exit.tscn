@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://entities/Scannable.gd" type="Script" id=1]
+
+[node name="Exit" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 1 )
+can_activate = true
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color( 0, 1, 0.858824, 1 )
+polygon = PoolVector2Array( 0, -8, 8, -8, 4, 0, 8, 8, -8, 8, -4, 0, -8, -8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -8, -8, 8, -8, 4, 0, 8, 8, -8, 8, -4, 0 )
+__meta__ = {
+"_edit_lock_": true
+}

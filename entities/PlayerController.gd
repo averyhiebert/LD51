@@ -10,6 +10,7 @@ const DAMPING = 0.95
 
 var velocity = Vector2(0,0)
 var dying = false
+var skip_physics = false
 
 var player = null
 
@@ -42,6 +43,9 @@ func handle_key_input(delta):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if skip_physics:
+		return
+	
 	var heading = handle_key_input(delta)
 	
 	velocity = velocity + heading.normalized()*ACCELERATION*delta
@@ -50,10 +54,17 @@ func _process(delta):
 	player.set_rotation(velocity.angle())
 	player.move_and_slide(velocity*delta,Vector2(0,-1))
 	
-	for i in player.get_slide_count():
-		var collision = player.get_slide_collision(i)
+	if player.get_slide_collision(0):
+		# Note: we ignore all but the first collision
+		#  (Avoids race conditions of exit vs. mine, etc.)
+		var collision = player.get_slide_collision(0)
 		if collision.collider.is_hazardous:
 			player_die()
+		if collision.collider.can_activate:
+			collision.collider.activate(self)
+	
+	if player.position.x < 0 or player.position.y < 0 or player.position.x > 600 or player.position.y > 600:
+		player_die()
 
 func player_die():
 	dying = true
