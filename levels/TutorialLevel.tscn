@@ -1,0 +1,117 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scanner/ScanArea.gd" type="Script" id=1]
+[ext_resource path="res://scanner/LevelBackground.tscn" type="PackedScene" id=2]
+[ext_resource path="res://entities/GreenArrow.tscn" type="PackedScene" id=3]
+[ext_resource path="res://entities/SpaceMine.tscn" type="PackedScene" id=4]
+[ext_resource path="res://entities/Exit.tscn" type="PackedScene" id=5]
+[ext_resource path="res://entities/PlayerController.gd" type="Script" id=6]
+[ext_resource path="res://levels/BasicLevel.tscn" type="PackedScene" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 304.5, 305.5 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="LevelBackground" parent="." instance=ExtResource( 2 )]
+
+[node name="EverythingVisible" type="Area2D" parent="."]
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EverythingVisible"]
+position = Vector2( 300, 297.5 )
+shape = SubResource( 1 )
+
+[node name="Arrow" parent="." instance=ExtResource( 3 )]
+position = Vector2( 46, 297 )
+visible_by_default = true
+
+[node name="PlayerController" type="Node" parent="Arrow"]
+script = ExtResource( 6 )
+
+[node name="Exit" parent="." instance=ExtResource( 5 )]
+position = Vector2( 480, 288 )
+visible_by_default = true
+exit_to = ExtResource( 7 )
+
+[node name="Mines" type="Node2D" parent="."]
+
+[node name="SpaceMine7" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 480, 320 )
+visible_by_default = true
+
+[node name="SpaceMine8" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 512, 320 )
+visible_by_default = true
+
+[node name="SpaceMine9" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 128, 200 )
+visible_by_default = true
+
+[node name="SpaceMine10" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 192, 408 )
+visible_by_default = true
+
+[node name="SpaceMine11" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 320, 128 )
+visible_by_default = true
+
+[node name="SpaceMine12" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 384, 448 )
+visible_by_default = true
+
+[node name="SpaceMine13" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 64, 88 )
+visible_by_default = true
+
+[node name="SpaceMine14" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 64, 528 )
+visible_by_default = true
+
+[node name="SpaceMine15" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 448, 568 )
+visible_by_default = true
+
+[node name="SpaceMine6" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 544, 256 )
+visible_by_default = true
+
+[node name="SpaceMine" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 480, 256 )
+visible_by_default = true
+
+[node name="SpaceMine2" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 448, 320 )
+visible_by_default = true
+
+[node name="SpaceMine3" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 512, 256 )
+visible_by_default = true
+
+[node name="SpaceMine4" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 448, 288 )
+visible_by_default = true
+
+[node name="SpaceMine5" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 448, 256 )
+visible_by_default = true
+
+[node name="SpaceMine16" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 472, 104 )
+visible_by_default = true
+
+[node name="SpaceMine17" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 272, 528 )
+visible_by_default = true
+
+[node name="SpaceMine18" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 272, 304 )
+visible_by_default = true
+
+[node name="SpaceMine19" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 176, 72 )
+visible_by_default = true
+
+[node name="SpaceMine20" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 552, 464 )
+visible_by_default = true

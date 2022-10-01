@@ -4,6 +4,7 @@ class_name ScannableBody
 
 extends KinematicBody2D
 
+export var visible_by_default = false
 export var is_ghost = false
 export var is_hazardous = false
 export var can_activate = false
@@ -30,7 +31,7 @@ func _ready():
 	if is_ghost:
 		collision_layer = 0 # No collide with anything (?)
 		#image.color.a = 0.5 # Should be transparent (TODO FADE OUT)
-	else:
+	elif not visible_by_default:
 		# Invisible by default
 		visible = false
 
@@ -58,10 +59,11 @@ func create_ghost():
 	new_node.is_ghost = true
 	
 	# Make all modified properties match:
-	new_node.transform = transform
+	new_node.global_transform = global_transform
 	
-	# Add to scene.
-	get_parent().add_child(new_node)
+	# Add to scene as child of ROOT node (solves problems with pathfinding etc.
+	get_tree().root.get_child(0).add_child(new_node)
+	#get_parent().add_child(new_node)
 	
 	# Make ghost fade out over 10 seconds
 	#  Must happen AFTER ghost enters tree (so new_node.image isn't nil)

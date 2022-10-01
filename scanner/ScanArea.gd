@@ -1,3 +1,5 @@
+class_name ScanArea
+
 extends Area2D
 
 

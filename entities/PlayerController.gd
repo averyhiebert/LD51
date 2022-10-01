@@ -54,7 +54,7 @@ func _process(delta):
 	player.set_rotation(velocity.angle())
 	player.move_and_slide(velocity*delta,Vector2(0,-1))
 	
-	if player.get_slide_collision(0):
+	if player.get_slide_collision(0) and not dying:
 		# Note: we ignore all but the first collision
 		#  (Avoids race conditions of exit vs. mine, etc.)
 		var collision = player.get_slide_collision(0)

@@ -1,0 +1,329 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://entities/PlayerController.gd" type="Script" id=1]
+[ext_resource path="res://entities/GreenArrow.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scanner/LevelBackground.tscn" type="PackedScene" id=3]
+[ext_resource path="res://entities/SpaceMine.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scanner/RadarScanner.tscn" type="PackedScene" id=5]
+[ext_resource path="res://entities/Exit.tscn" type="PackedScene" id=6]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="LevelBackground" parent="." instance=ExtResource( 3 )]
+position = Vector2( 16, 8 )
+
+[node name="RadarScanner" parent="." instance=ExtResource( 5 )]
+
+[node name="Arrow" parent="." instance=ExtResource( 2 )]
+position = Vector2( 338, 92 )
+
+[node name="PlayerController" type="Node" parent="Arrow"]
+script = ExtResource( 1 )
+
+[node name="Exit" parent="." instance=ExtResource( 6 )]
+position = Vector2( 264, 344 )
+
+[node name="Mines" type="Node2D" parent="."]
+
+[node name="SpaceMine" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 384, 64 )
+
+[node name="SpaceMine2" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 416, 64 )
+
+[node name="SpaceMine3" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 448, 64 )
+
+[node name="SpaceMine33" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 464, 80 )
+
+[node name="SpaceMine34" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 64, 416 )
+
+[node name="SpaceMine35" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 64, 384 )
+
+[node name="SpaceMine36" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 64, 352 )
+
+[node name="SpaceMine37" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 64, 320 )
+
+[node name="SpaceMine38" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 64, 288 )
+
+[node name="SpaceMine39" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 64, 256 )
+
+[node name="SpaceMine40" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 64, 224 )
+
+[node name="SpaceMine41" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 80, 208 )
+
+[node name="SpaceMine42" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 104, 192 )
+
+[node name="SpaceMine43" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 128, 192 )
+
+[node name="SpaceMine44" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 192, 192 )
+
+[node name="SpaceMine45" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 224, 192 )
+
+[node name="SpaceMine46" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 256, 192 )
+
+[node name="SpaceMine47" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 288, 192 )
+
+[node name="SpaceMine48" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 320, 192 )
+
+[node name="SpaceMine49" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 352, 192 )
+
+[node name="SpaceMine50" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 384, 192 )
+
+[node name="SpaceMine51" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 400, 208 )
+
+[node name="SpaceMine52" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 416, 224 )
+
+[node name="SpaceMine53" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 432, 240 )
+
+[node name="SpaceMine54" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 432, 304 )
+
+[node name="SpaceMine55" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 432, 336 )
+
+[node name="SpaceMine56" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 432, 368 )
+
+[node name="SpaceMine57" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 432, 400 )
+
+[node name="SpaceMine58" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 432, 432 )
+
+[node name="SpaceMine59" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 416, 448 )
+
+[node name="SpaceMine60" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 384, 448 )
+
+[node name="SpaceMine61" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 352, 448 )
+
+[node name="SpaceMine62" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 320, 448 )
+
+[node name="SpaceMine63" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 288, 448 )
+
+[node name="SpaceMine64" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 256, 448 )
+
+[node name="SpaceMine65" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 224, 448 )
+
+[node name="SpaceMine66" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 192, 448 )
+
+[node name="SpaceMine67" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 160, 448 )
+
+[node name="SpaceMine68" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 144, 432 )
+
+[node name="SpaceMine69" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 128, 416 )
+
+[node name="SpaceMine70" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 128, 384 )
+
+[node name="SpaceMine71" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 128, 352 )
+
+[node name="SpaceMine72" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 128, 320 )
+
+[node name="SpaceMine73" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 128, 288 )
+
+[node name="SpaceMine74" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 128, 256 )
+
+[node name="SpaceMine75" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 144, 240 )
+
+[node name="SpaceMine76" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 176, 240 )
+
+[node name="SpaceMine77" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 208, 240 )
+
+[node name="SpaceMine78" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 240, 240 )
+
+[node name="SpaceMine79" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 272, 240 )
+
+[node name="SpaceMine80" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 304, 240 )
+
+[node name="SpaceMine81" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 336, 240 )
+
+[node name="SpaceMine82" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 352, 256 )
+
+[node name="SpaceMine83" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 368, 272 )
+
+[node name="SpaceMine84" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 384, 288 )
+
+[node name="SpaceMine85" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 384, 320 )
+
+[node name="SpaceMine86" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 384, 352 )
+
+[node name="SpaceMine87" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 384, 376 )
+
+[node name="SpaceMine88" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 368, 392 )
+
+[node name="SpaceMine89" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 336, 392 )
+
+[node name="SpaceMine90" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 304, 392 )
+
+[node name="SpaceMine91" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 272, 392 )
+
+[node name="SpaceMine92" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 240, 392 )
+
+[node name="SpaceMine93" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 216, 376 )
+
+[node name="SpaceMine94" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 216, 344 )
+
+[node name="SpaceMine95" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 216, 312 )
+
+[node name="SpaceMine96" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 248, 296 )
+
+[node name="SpaceMine97" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 280, 296 )
+
+[node name="SpaceMine98" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 312, 312 )
+
+[node name="SpaceMine99" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 432, 272 )
+
+[node name="SpaceMine100" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 160, 192 )
+
+[node name="SpaceMine4" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 480, 96 )
+
+[node name="SpaceMine5" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 496, 112 )
+
+[node name="SpaceMine6" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 512, 128 )
+
+[node name="SpaceMine7" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 512, 160 )
+
+[node name="SpaceMine8" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 512, 192 )
+
+[node name="SpaceMine9" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 512, 224 )
+
+[node name="SpaceMine10" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 512, 256 )
+
+[node name="SpaceMine11" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 512, 288 )
+
+[node name="SpaceMine12" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 512, 320 )
+
+[node name="SpaceMine13" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 512, 352 )
+
+[node name="SpaceMine14" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 512, 384 )
+
+[node name="SpaceMine15" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 512, 416 )
+
+[node name="SpaceMine16" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 512, 448 )
+
+[node name="SpaceMine17" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 512, 480 )
+
+[node name="SpaceMine18" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 488, 512 )
+
+[node name="SpaceMine19" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 448, 512 )
+
+[node name="SpaceMine20" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 416, 512 )
+
+[node name="SpaceMine21" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 384, 512 )
+
+[node name="SpaceMine22" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 352, 512 )
+
+[node name="SpaceMine23" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 320, 512 )
+
+[node name="SpaceMine24" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 288, 512 )
+
+[node name="SpaceMine25" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 256, 512 )
+
+[node name="SpaceMine26" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 224, 512 )
+
+[node name="SpaceMine27" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 192, 512 )
+
+[node name="SpaceMine28" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 160, 512 )
+
+[node name="SpaceMine29" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 128, 512 )
+
+[node name="SpaceMine30" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 112, 496 )
+
+[node name="SpaceMine101" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 80, 464 )
+
+[node name="SpaceMine31" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 96, 480 )
+
+[node name="SpaceMine32" parent="Mines" instance=ExtResource( 4 )]
+position = Vector2( 64, 448 )
