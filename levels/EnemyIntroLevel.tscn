@@ -31,7 +31,6 @@ position = Vector2( 520, 64 )
 
 [node name="EnemyController" type="Node" parent="Enemy"]
 script = ExtResource( 8 )
-SPEED = 1000
 
 [node name="Mines" type="Node2D" parent="."]
 

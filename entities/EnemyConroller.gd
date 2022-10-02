@@ -3,7 +3,7 @@ class_name EnemyController
 
 extends Node
 
-export var SPEED = 1300
+export var SPEED = 1000
 
 var enemy = null
 var target_point = Vector2(300,300) # Start by targeting center of screen

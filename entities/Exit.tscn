@@ -26,15 +26,18 @@ __meta__ = {
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 emitting = false
-amount = 50
+amount = 100
 lifetime = 0.5
 one_shot = true
 emission_shape = 1
 emission_sphere_radius = 50.83
+spread = 180.0
 gravity = Vector2( 0, 0 )
+initial_velocity = 27.24
+initial_velocity_random = 0.22
 angular_velocity = 198.17
 angular_velocity_random = 0.39
 orbit_velocity = 0.5
-scale_amount = 3.0
+scale_amount = 6.0
 scale_amount_curve = SubResource( 1 )
 color = Color( 0, 1, 1, 1 )

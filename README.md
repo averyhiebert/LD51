@@ -7,17 +7,15 @@
     - probably need a path of mines as hints.
 - Opposite-direction versions of existing levels
     - probably easier than the current version.
+- Dense maze where enemy starts close to you.
 - Other radar scan shapes?
 - moving mine configurations?
     - maybe one that tracks alongside the radar scanline?
-
-## Gameplay
-- More levels
-- enemy that follows you
-    - should always point towards you (extra information for player)
 - confusing not-you green arrows?
     - easy-to-implement version: just make them follow some out-of-sync paths
     - hard version: they move randomly, you are also placed randomly.
+
+## Gameplay Mechanics
 - Speedrun timer?
     - something to make player move and not just sit in one place.
 
@@ -34,15 +32,17 @@
 - Menu
     - font etc.
     - instructions
-- Mine particles?
 - bloom/postprocessing
     - background shader?
+
 
 ## Bug Fixes
 - particles cancelled by radar when exiting level?
 
-## Stretch Goals
+## Stretch Goals/nice-to-have
+- Mine particles?
 - Branching narrative between levels?
     - gives more choices for speedrunners?
 - Endless mode?
+- Music?
 

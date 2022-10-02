@@ -1,6 +1,5 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://scanner/ScanArea.gd" type="Script" id=1]
 [ext_resource path="res://scanner/LevelBackground.tscn" type="PackedScene" id=2]
 [ext_resource path="res://entities/GreenArrow.tscn" type="PackedScene" id=3]
 [ext_resource path="res://entities/SpaceMine.tscn" type="PackedScene" id=4]
@@ -8,19 +7,9 @@
 [ext_resource path="res://entities/PlayerController.gd" type="Script" id=6]
 [ext_resource path="res://levels/BasicLevel.tscn" type="PackedScene" id=7]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 304.5, 305.5 )
-
 [node name="Node2D" type="Node2D"]
 
 [node name="LevelBackground" parent="." instance=ExtResource( 2 )]
-
-[node name="EverythingVisible" type="Area2D" parent="."]
-script = ExtResource( 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EverythingVisible"]
-position = Vector2( 300, 297.5 )
-shape = SubResource( 1 )
 
 [node name="Arrow" parent="." instance=ExtResource( 3 )]
 position = Vector2( 46, 297 )
@@ -115,3 +104,5 @@ visible_by_default = true
 [node name="SpaceMine20" parent="Mines" instance=ExtResource( 4 )]
 position = Vector2( 552, 464 )
 visible_by_default = true
+
+[editable path="LevelBackground"]
