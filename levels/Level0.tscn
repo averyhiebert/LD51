@@ -11,7 +11,7 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="LevelBackground" parent="." instance=ExtResource( 1 )]
-level_name = "Asteroids"
+level_name = "Limited Visibility"
 
 [node name="RadarScanner" parent="." instance=ExtResource( 3 )]
 

@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://UI/main_theme.tres" type="Theme" id=1]
 [ext_resource path="res://level_stuff/LevelBackground.tscn" type="PackedScene" id=2]
 [ext_resource path="res://UI/EndScreen.gd" type="Script" id=3]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.490196, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 3 )
@@ -60,5 +63,56 @@ size_flags_horizontal = 0
 margin_right = 160.0
 margin_bottom = 32.0
 text = "Main Menu"
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2( 445, 103 )
+amount = 50
+explosiveness = 0.73
+spread = 180.0
+initial_velocity = 119.27
+angular_velocity = 290.64
+angular_velocity_random = 0.26
+scale_amount = 5.0
+scale_amount_curve = SubResource( 1 )
+color = Color( 0, 1, 1, 1 )
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+position = Vector2( 102, 189 )
+amount = 50
+lifetime = 1.23
+explosiveness = 0.73
+spread = 180.0
+initial_velocity = 119.27
+angular_velocity = 290.64
+angular_velocity_random = 0.26
+scale_amount = 5.0
+scale_amount_curve = SubResource( 1 )
+color = Color( 1, 0.235294, 0.235294, 1 )
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="."]
+position = Vector2( 493, 314 )
+amount = 50
+lifetime = 0.83
+explosiveness = 0.73
+spread = 180.0
+initial_velocity = 119.27
+angular_velocity = 290.64
+angular_velocity_random = 0.26
+scale_amount = 5.0
+scale_amount_curve = SubResource( 1 )
+color = Color( 0, 1, 0, 1 )
+
+[node name="CPUParticles2D4" type="CPUParticles2D" parent="."]
+position = Vector2( 246, 445 )
+amount = 50
+lifetime = 1.13
+explosiveness = 0.73
+spread = 180.0
+initial_velocity = 119.27
+angular_velocity = 290.64
+angular_velocity_random = 0.26
+scale_amount = 5.0
+scale_amount_curve = SubResource( 1 )
+color = Color( 1, 0, 1, 1 )
 
 [connection signal="pressed" from="CanvasLayer/Control/CenterContainer/MainVbox/CenterContainer/ButtonsVbox/Button1" to="." method="_on_Button1_pressed"]

@@ -4,7 +4,7 @@ class_name ScannableBody
 
 extends KinematicBody2D
 
-const DEBUG = true
+const DEBUG = false
 
 export var visible_by_default = false
 export var is_ghost = false

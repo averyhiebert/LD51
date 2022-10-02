@@ -62,4 +62,19 @@ position = Vector2( 296, 56 )
 [node name="SpaceMine9" parent="Mines" instance=ExtResource( 6 )]
 position = Vector2( 296, 24 )
 
+[node name="SpaceMine10" parent="Mines" instance=ExtResource( 6 )]
+position = Vector2( 104, 360 )
+
+[node name="SpaceMine11" parent="Mines" instance=ExtResource( 6 )]
+position = Vector2( 184, 544 )
+
+[node name="SpaceMine12" parent="Mines" instance=ExtResource( 6 )]
+position = Vector2( 400, 416 )
+
+[node name="SpaceMine13" parent="Mines" instance=ExtResource( 6 )]
+position = Vector2( 456, 576 )
+
+[node name="SpaceMine14" parent="Mines" instance=ExtResource( 6 )]
+position = Vector2( 576, 384 )
+
 [connection signal="player_moved" from="Arrow/PlayerController" to="Enemy/EnemyController" method="_on_PlayerController_player_moved"]

@@ -4,15 +4,14 @@
 ## MUST DO:
 - better end screen?
     - Fireworks? Fancy text?
-- title art
-    - make it wobble or something.
 
 - itch page etc.
 
 ## WANT TO DO
 - speedrun timer
-    - can't (globals bug?)
+    - Can't do this due to weird bug with globals + environment (?)
 - UI sounds?
+- Nicer title screen (animation of some sort?)
 - Scarier noise for enemy?
 
 ## Level Ideas

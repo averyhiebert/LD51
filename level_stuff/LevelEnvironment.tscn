@@ -4,10 +4,12 @@
 background_mode = 4
 glow_enabled = true
 glow_intensity = 1.5
-glow_strength = 1.17
+glow_strength = 1.28
 glow_bloom = 0.13
 glow_blend_mode = 0
 glow_hdr_threshold = 0.9
+glow_bicubic_upscale = true
+glow_high_quality = true
 
 [node name="WorldEnvironment" type="WorldEnvironment"]
 environment = SubResource( 1 )
