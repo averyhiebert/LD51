@@ -2,10 +2,9 @@
 
 
 ## MUST DO:
-- sound
+- more levels
 - better end screen
     - Fireworks? Fancy text?
-- more levels
 - title art
     - make it wobble or something.
 
@@ -14,6 +13,8 @@
 ## WANT TO DO
 - speedrun timer
 - text between levels?
+- UI sounds?
+- Scarier noise for enemy?
 
 ## Level Ideas
 - One where level exit is only visible in inaccessible areas

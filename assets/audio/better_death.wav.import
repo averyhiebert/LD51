@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/better_death.wav-8c30744e50a944f87265d2b498b0ae2e.sample"
+
+[deps]
+
+source_file="res://assets/audio/better_death.wav"
+dest_files=[ "res://.import/better_death.wav-8c30744e50a944f87265d2b498b0ae2e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

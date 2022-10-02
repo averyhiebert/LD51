@@ -64,10 +64,14 @@ func _process(delta):
 		if collision.collider.can_activate:
 			collision.collider.activate(self)
 	
-	if player.position.x < 0 or player.position.y < 0 or player.position.x > 600 or player.position.y > 600:
+	if not dying and player_is_oob():
 		player_die()
 	
 	emit_signal("player_moved",player.global_position)
+
+func player_is_oob():
+	return player.position.x < 0 or player.position.y < 0 \
+		or player.position.x > 600 or player.position.y > 600
 
 func player_die():
 	player.die() # Trigger death particles

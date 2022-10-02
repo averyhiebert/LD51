@@ -2,10 +2,8 @@ class_name ScanArea
 
 extends Area2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+signal low_beep
+signal high_beep
 
 
 # Called when the node enters the scene tree for the first time.
@@ -21,6 +19,10 @@ func _ready():
 func _on_Area2D_body_entered(body):
 	if body.has_method("enter_scan"):
 		body.enter_scan()
+		if body.is_hazardous:
+			emit_signal("low_beep")
+		else:
+			emit_signal("high_beep")
 
 
 func _on_Area2D_body_exited(body):

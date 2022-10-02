@@ -15,6 +15,7 @@ var self_scene = null # Slightly hacky.
 var image = null # The child representing the visual representation of this kinematic body
 						# (So a sprite, basically, although actually a Polygon2D in this case)
 var particles = null # A child particles node, if present.
+var sound = null     # AUdio player, if present.
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -26,6 +27,8 @@ func _ready():
 			image = N
 		elif N is CPUParticles2D:
 			particles = N
+		elif N is AudioStreamPlayer2D:
+			sound = N
 	assert(image != null,"Error: Scannable object with no image child")
 	
 	if is_ghost:
@@ -85,9 +88,9 @@ func create_ghost():
 	new_node.queue_free()
 
 func activate(player):
-	# Activate any particles that may be attached
-	if particles:
-		emit_particles()
+	# Activate any particles/sound that may be attached
+	emit_particles()
+	play_sound()
 	
 	# Generic function for activating effects when hit by player
 	if exit_to:
@@ -97,16 +100,18 @@ func activate(player):
 		get_tree().change_scene_to(exit_to)
 
 func emit_particles():
+	if not particles:
+		return
 	image.visible = false          # The object itself should disappear...
 	visible = true
 	particles.visible = true # But the particles need to be visible.
 	particles.emitting = true
 
+func play_sound():
+	# Play a sound, if it exists
+	if sound:
+		sound.play()
+
 func die():
-	#image.visible = false          # The ship itself should disappear...
-	#visible = true
-	#$DeathParticles.visible = true # But the particles need to be visible.
-	#$DeathParticles.emitting = true
-	#particles.visible = true # But the particles need to be visible.
-	#particles.emitting = true
+	play_sound()
 	emit_particles()
