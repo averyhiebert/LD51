@@ -14,6 +14,7 @@ var self_scene = null # Slightly hacky.
 
 var image = null # The child representing the visual representation of this kinematic body
 						# (So a sprite, basically, although actually a Polygon2D in this case)
+var particles = null # A child particles node, if present.
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,7 +24,8 @@ func _ready():
 	for N in get_children():
 		if N is Polygon2D:
 			image = N
-			break
+		elif N is CPUParticles2D:
+			particles = N
 	assert(image != null,"Error: Scannable object with no image child")
 	
 	if is_ghost:
@@ -83,6 +85,10 @@ func create_ghost():
 	new_node.queue_free()
 
 func activate(player):
+	# Activate any particles that may be attached
+	if particles:
+		emit_particles()
+	
 	# Generic function for activating effects when hit by player
 	if exit_to:
 		player.skip_physics = true
@@ -90,8 +96,17 @@ func activate(player):
 		yield(get_tree().create_timer(1), "timeout")
 		get_tree().change_scene_to(exit_to)
 
-func die():
-	image.visible = false          # The ship itself should disappear...
+func emit_particles():
+	image.visible = false          # The object itself should disappear...
 	visible = true
-	$DeathParticles.visible = true # But the particles need to be visible.
-	$DeathParticles.emitting = true
+	particles.visible = true # But the particles need to be visible.
+	particles.emitting = true
+
+func die():
+	#image.visible = false          # The ship itself should disappear...
+	#visible = true
+	#$DeathParticles.visible = true # But the particles need to be visible.
+	#$DeathParticles.emitting = true
+	#particles.visible = true # But the particles need to be visible.
+	#particles.emitting = true
+	emit_particles()

@@ -15,13 +15,13 @@
 [node name="RadarScanner" parent="." instance=ExtResource( 3 )]
 
 [node name="Arrow" parent="." instance=ExtResource( 2 )]
-position = Vector2( 494, 126 )
+position = Vector2( 127, 121 )
 
 [node name="PlayerController" type="Node" parent="Arrow"]
 script = ExtResource( 5 )
 
 [node name="Exit" parent="." instance=ExtResource( 4 )]
-position = Vector2( 145, 145 )
+position = Vector2( 488, 124 )
 exit_to = ExtResource( 7 )
 
 [node name="Mines" type="Node2D" parent="."]
@@ -85,3 +85,9 @@ position = Vector2( 122, 515 )
 
 [node name="SpaceMine20" parent="Mines" instance=ExtResource( 6 )]
 position = Vector2( 494, 436 )
+
+[node name="SpaceMine21" parent="Mines" instance=ExtResource( 6 )]
+position = Vector2( 551, 78 )
+
+[node name="SpaceMine22" parent="Mines" instance=ExtResource( 6 )]
+position = Vector2( 580, 125 )

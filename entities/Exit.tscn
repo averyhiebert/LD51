@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://entities/Scannable.gd" type="Script" id=1]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0.00980392, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.490196, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.00454545 ), 0.0, 0.0, 0, 0 ]
 
 [node name="Exit" type="KinematicBody2D"]
 collision_layer = 2
@@ -20,3 +23,18 @@ polygon = PoolVector2Array( -8, -8, 8, -8, 4, 0, 8, 8, -8, 8, -4, 0 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 50
+lifetime = 0.5
+one_shot = true
+emission_shape = 1
+emission_sphere_radius = 50.83
+gravity = Vector2( 0, 0 )
+angular_velocity = 198.17
+angular_velocity_random = 0.39
+orbit_velocity = 0.5
+scale_amount = 3.0
+scale_amount_curve = SubResource( 1 )
+color = Color( 0, 1, 1, 1 )
