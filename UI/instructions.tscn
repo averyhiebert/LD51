@@ -1,0 +1,118 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://UI/main_theme.tres" type="Theme" id=1]
+[ext_resource path="res://level_stuff/LevelBackground.tscn" type="PackedScene" id=2]
+[ext_resource path="res://entities/Exit.tscn" type="PackedScene" id=3]
+[ext_resource path="res://entities/GreenArrow.tscn" type="PackedScene" id=4]
+[ext_resource path="res://entities/SpaceMine.tscn" type="PackedScene" id=5]
+[ext_resource path="res://UI/instructions.gd" type="Script" id=6]
+
+[sub_resource type="Animation" id=1]
+resource_name = "rotate"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/Arrow:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="LevelBackground" parent="." instance=ExtResource( 2 )]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1.0
+theme = ExtResource( 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="MainVbox" type="VBoxContainer" parent="CanvasLayer/Control/CenterContainer"]
+margin_left = 99.0
+margin_top = 83.0
+margin_right = 499.0
+margin_bottom = 516.0
+
+[node name="MainTextLabel" type="Label" parent="CanvasLayer/Control/CenterContainer/MainVbox"]
+margin_right = 400.0
+margin_bottom = 358.0
+rect_min_size = Vector2( 400, 0 )
+size_flags_vertical = 1
+text = "Use arrow keys/WASD to guid the lost spaceship.
+
+
+
+Get to the stargate.
+
+
+
+Don't touch the mines!
+
+
+
+You won't be able to see most things most of the time.  The radar sweeps once every 10 seconds.  You'll figure it out. I believe in you."
+align = 1
+autowrap = true
+
+[node name="SpacerLabel" type="Label" parent="CanvasLayer/Control/CenterContainer/MainVbox"]
+margin_top = 362.0
+margin_right = 400.0
+margin_bottom = 397.0
+text = "
+"
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control/CenterContainer/MainVbox"]
+margin_top = 401.0
+margin_right = 400.0
+margin_bottom = 433.0
+
+[node name="ButtonsVbox" type="VBoxContainer" parent="CanvasLayer/Control/CenterContainer/MainVbox/CenterContainer"]
+margin_left = 160.0
+margin_right = 240.0
+margin_bottom = 32.0
+size_flags_horizontal = 0
+
+[node name="Button1" type="Button" parent="CanvasLayer/Control/CenterContainer/MainVbox/CenterContainer/ButtonsVbox"]
+margin_right = 80.0
+margin_bottom = 32.0
+text = "Done"
+
+[node name="SpaceMine" parent="." instance=ExtResource( 5 )]
+position = Vector2( 300, 292 )
+visible_by_default = true
+
+[node name="SpaceMine2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 250, 292 )
+visible_by_default = true
+
+[node name="SpaceMine3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 350, 292 )
+visible_by_default = true
+
+[node name="Exit" parent="." instance=ExtResource( 3 )]
+position = Vector2( 300, 221 )
+visible_by_default = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "rotate"
+anims/rotate = SubResource( 1 )
+
+[node name="Arrow" parent="AnimationPlayer" instance=ExtResource( 4 )]
+position = Vector2( 300, 140 )
+visible_by_default = true
+
+[connection signal="pressed" from="CanvasLayer/Control/CenterContainer/MainVbox/CenterContainer/ButtonsVbox/Button1" to="." method="_on_Button1_pressed"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://scanner/LevelBackground.tscn" type="PackedScene" id=2]
+[ext_resource path="res://level_stuff/LevelBackground.tscn" type="PackedScene" id=2]
 [ext_resource path="res://entities/GreenArrow.tscn" type="PackedScene" id=3]
 [ext_resource path="res://entities/SpaceMine.tscn" type="PackedScene" id=4]
 [ext_resource path="res://entities/Exit.tscn" type="PackedScene" id=5]

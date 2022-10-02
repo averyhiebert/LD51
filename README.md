@@ -1,6 +1,20 @@
 # TODO
 
 
+## MUST DO:
+- sound
+- better end screen
+    - Fireworks? Fancy text?
+- more levels
+- title art
+    - make it wobble or something.
+
+- itch page etc.
+
+## WANT TO DO
+- speedrun timer
+- text between levels?
+
 ## Level Ideas
 - One where level exit is only visible in inaccessible areas
     - need to deduce its path and intercept it when not visible.
@@ -15,10 +29,6 @@
     - easy-to-implement version: just make them follow some out-of-sync paths
     - hard version: they move randomly, you are also placed randomly.
 
-## Gameplay Mechanics
-- Speedrun timer?
-    - something to make player move and not just sit in one place.
-
 # Sound
 - movement noise
 - death noise
@@ -27,22 +37,13 @@
 - enemy approaching noise?
 - music?
 
-## Polish
-- pick palette
-- Menu
-    - font etc.
-    - instructions
-- bloom/postprocessing
-    - background shader?
-
 
 ## Bug Fixes
 - particles cancelled by radar when exiting level?
 
 ## Stretch Goals/nice-to-have
 - Mine particles?
-- Branching narrative between levels?
-    - gives more choices for speedrunners?
-- Endless mode?
+- background shader?
 - Music?
+- Finally settle on a good palette.
 

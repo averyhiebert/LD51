@@ -7,7 +7,7 @@ script = ExtResource( 1 )
 is_hazardous = true
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-color = Color( 1, 0, 0, 1 )
+color = Color( 1, 0.235294, 0.235294, 1 )
 polygon = PoolVector2Array( 0, -8, 2, -2, 8, 0, 2, 2, 0, 8, -2, 2, -8, 0, -2, -2 )
 __meta__ = {
 "_edit_lock_": true
