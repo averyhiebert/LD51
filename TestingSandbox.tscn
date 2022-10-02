@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scanner/ScanArea.gd" type="Script" id=1]
 [ext_resource path="res://scanner/LevelBackground.tscn" type="PackedScene" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://entities/PlayerController.gd" type="Script" id=6]
 [ext_resource path="res://levels/BasicLevel.tscn" type="PackedScene" id=7]
 [ext_resource path="res://entities/PeriodicPathFollow.gd" type="Script" id=8]
+[ext_resource path="res://entities/Enemy.tscn" type="PackedScene" id=9]
+[ext_resource path="res://entities/EnemyConroller.gd" type="Script" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 304.5, 305.5 )
@@ -50,6 +52,13 @@ period = 30
 rotation = -0.844151
 visible_by_default = true
 exit_to = ExtResource( 7 )
+
+[node name="Enemy" parent="." instance=ExtResource( 9 )]
+position = Vector2( 376, 60 )
+visible_by_default = true
+
+[node name="EnemyController" type="Node" parent="Enemy"]
+script = ExtResource( 10 )
 
 [node name="Mines" type="Node2D" parent="."]
 
@@ -132,3 +141,5 @@ visible_by_default = true
 [node name="SpaceMine20" parent="Mines" instance=ExtResource( 4 )]
 position = Vector2( 552, 464 )
 visible_by_default = true
+
+[connection signal="player_moved" from="Arrow/PlayerController" to="Enemy/EnemyController" method="_on_PlayerController_player_moved"]

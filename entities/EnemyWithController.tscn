@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://entities/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://entities/EnemyConroller.gd" type="Script" id=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node2D
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+func _on_PlayerController_player_moved(position):
+	$Enemy/Controller.path_to(position)
+"
+
+[node name="EnemyWithController" type="Node2D"]
+script = SubResource( 1 )
+
+[node name="Enemy" parent="." instance=ExtResource( 1 )]
+script = null
+
+[node name="Controller" type="Node" parent="Enemy"]
+script = ExtResource( 2 )

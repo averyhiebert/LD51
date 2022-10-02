@@ -4,6 +4,8 @@ class_name PlayerController
 
 extends Node
 
+signal player_moved(position)
+
 #const MAX_SPEED = 250 * Engine.iterations_per_second # Not currently used?
 const ACCELERATION = 500 * Engine.iterations_per_second
 const DAMPING = 0.95
@@ -17,7 +19,6 @@ var player = null
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = get_parent()
-	player.connect("died",self,"player_die")
 	
 func handle_key_input(delta):
 	var heading = Vector2(0,0)
@@ -51,7 +52,7 @@ func _process(delta):
 	velocity = velocity + heading.normalized()*ACCELERATION*delta
 	velocity = velocity * DAMPING
 	
-	player.set_rotation(velocity.angle())
+	player.rotation = velocity.angle()
 	player.move_and_slide(velocity*delta,Vector2(0,-1))
 	
 	if player.get_slide_collision(0) and not dying:
@@ -65,6 +66,8 @@ func _process(delta):
 	
 	if player.position.x < 0 or player.position.y < 0 or player.position.x > 600 or player.position.y > 600:
 		player_die()
+	
+	emit_signal("player_moved",player.global_position)
 
 func player_die():
 	player.die() # Trigger death particles

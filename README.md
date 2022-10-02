@@ -7,7 +7,9 @@
     - probably need a path of mines as hints.
 - Opposite-direction versions of existing levels
     - probably easier than the current version.
+- Other radar scan shapes?
 - moving mine configurations?
+    - maybe one that tracks alongside the radar scanline?
 
 ## Gameplay
 - More levels
@@ -27,18 +29,20 @@
 - enemy approaching noise?
 - music?
 
-# graphics
-- pick palette
-- bloom/postprocessing
-- font etc.
-
 ## Polish
-- Proper feedback for death/next level
-    - particles
-    - make whatever killed you visible
+- pick palette
 - Menu
+    - font etc.
     - instructions
+- Mine particles?
+- bloom/postprocessing
+    - background shader?
+
+## Bug Fixes
+- particles cancelled by radar when exiting level?
 
 ## Stretch Goals
 - Branching narrative between levels?
+    - gives more choices for speedrunners?
 - Endless mode?
+
