@@ -5,16 +5,18 @@
 - One where level exit is only visible in inaccessible areas
     - need to deduce its path and intercept it when not visible.
     - probably need a path of mines as hints.
+- Opposite-direction versions of existing levels
+    - probably easier than the current version.
+- moving mine configurations?
 
 ## Gameplay
-- design some levels
+- More levels
 - enemy that follows you
     - should always point towards you (extra information for player)
 - confusing not-you green arrows?
     - easy-to-implement version: just make them follow some out-of-sync paths
     - hard version: they move randomly, you are also placed randomly.
-- moving mine configurations?
-- Timer?
+- Speedrun timer?
     - something to make player move and not just sit in one place.
 
 # Sound

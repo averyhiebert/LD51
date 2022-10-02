@@ -10,8 +10,6 @@ export var is_hazardous = false
 export var can_activate = false
 export var exit_to: Resource = null # Scene to exit to when touched by player
 
-signal died
-
 var self_scene = null # Slightly hacky.
 
 var image = null # The child representing the visual representation of this kinematic body
@@ -93,4 +91,7 @@ func activate(player):
 		get_tree().change_scene_to(exit_to)
 
 func die():
-	emit_signal("died")
+	image.visible = false          # The ship itself should disappear...
+	visible = true
+	$DeathParticles.visible = true # But the particles need to be visible.
+	$DeathParticles.emitting = true

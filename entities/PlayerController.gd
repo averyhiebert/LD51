@@ -67,7 +67,8 @@ func _process(delta):
 		player_die()
 
 func player_die():
+	player.die() # Trigger death particles
 	dying = true
 	print("Player died")
-	yield(get_tree().create_timer(0.5), "timeout")
+	yield(get_tree().create_timer(1), "timeout")
 	get_tree().reload_current_scene()

@@ -21,7 +21,7 @@ _data = {
 [node name="RadarScanner" parent="." instance=ExtResource( 3 )]
 
 [node name="Arrow" parent="." instance=ExtResource( 2 )]
-position = Vector2( 408, 312 )
+position = Vector2( 288, 144 )
 
 [node name="PlayerController" type="Node" parent="Arrow"]
 script = ExtResource( 5 )
