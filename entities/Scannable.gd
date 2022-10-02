@@ -4,6 +4,8 @@ class_name ScannableBody
 
 extends KinematicBody2D
 
+const DEBUG = true
+
 export var visible_by_default = false
 export var is_ghost = false
 export var is_hazardous = false
@@ -36,7 +38,8 @@ func _ready():
 		#image.color.a = 0.5 # Should be transparent (TODO FADE OUT)
 	elif not visible_by_default:
 		# Invisible by default
-		visible = false
+		if not DEBUG:
+			visible = false
 
 func _processs():
 	pass
@@ -50,6 +53,8 @@ func enter_scan():
 		visible = true
 
 func exit_scan():
+	if DEBUG:
+		return
 	if not is_ghost:
 		visible = false
 		create_ghost()

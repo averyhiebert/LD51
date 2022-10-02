@@ -1,0 +1,130 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://level_stuff/LevelBackground.tscn" type="PackedScene" id=1]
+[ext_resource path="res://entities/GreenArrow.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scanner/RadarScanner.tscn" type="PackedScene" id=3]
+[ext_resource path="res://entities/Exit.tscn" type="PackedScene" id=4]
+[ext_resource path="res://entities/PlayerController.gd" type="Script" id=5]
+[ext_resource path="res://entities/SpaceMine.tscn" type="PackedScene" id=6]
+[ext_resource path="res://entities/PeriodicPathFollow.gd" type="Script" id=7]
+[ext_resource path="res://entities/EnemyConroller.gd" type="Script" id=8]
+[ext_resource path="res://entities/Enemy.tscn" type="PackedScene" id=9]
+[ext_resource path="res://levels/Level6.tscn" type="PackedScene" id=10]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 72, 528, 0, 0, 0, 0, 72, 112, 0, 0, 0, 0, 536, 112, 0, 0, 0, 0, 544, 528, 0, 0, 0, 0, 72, 528 )
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="LevelBackground" parent="." instance=ExtResource( 1 )]
+level_name = "It Can Smell You"
+
+[node name="RadarScanner" parent="." instance=ExtResource( 3 )]
+
+[node name="Arrow" parent="." instance=ExtResource( 2 )]
+position = Vector2( 464, 240 )
+
+[node name="PlayerController" type="Node" parent="Arrow"]
+script = ExtResource( 5 )
+
+[node name="Enemy" parent="." instance=ExtResource( 9 )]
+position = Vector2( 368, 384 )
+
+[node name="EnemyController" type="Node" parent="Enemy"]
+script = ExtResource( 8 )
+
+[node name="Mines" type="Node2D" parent="."]
+
+[node name="SpaceMine" parent="Mines" instance=ExtResource( 6 )]
+position = Vector2( 184, 72 )
+
+[node name="SpaceMine2" parent="Mines" instance=ExtResource( 6 )]
+position = Vector2( 224, 136 )
+
+[node name="SpaceMine3" parent="Mines" instance=ExtResource( 6 )]
+position = Vector2( 168, 208 )
+
+[node name="SpaceMine4" parent="Mines" instance=ExtResource( 6 )]
+position = Vector2( 48, 200 )
+
+[node name="SpaceMine5" parent="Mines" instance=ExtResource( 6 )]
+position = Vector2( 112, 336 )
+
+[node name="SpaceMine6" parent="Mines" instance=ExtResource( 6 )]
+position = Vector2( 232, 312 )
+
+[node name="SpaceMine7" parent="Mines" instance=ExtResource( 6 )]
+position = Vector2( 336, 208 )
+
+[node name="SpaceMine8" parent="Mines" instance=ExtResource( 6 )]
+position = Vector2( 280, 64 )
+
+[node name="SpaceMine9" parent="Mines" instance=ExtResource( 6 )]
+position = Vector2( 376, 88 )
+
+[node name="SpaceMine10" parent="Mines" instance=ExtResource( 6 )]
+position = Vector2( 464, 184 )
+
+[node name="SpaceMine11" parent="Mines" instance=ExtResource( 6 )]
+position = Vector2( 400, 280 )
+
+[node name="SpaceMine12" parent="Mines" instance=ExtResource( 6 )]
+position = Vector2( 32, 384 )
+
+[node name="SpaceMine13" parent="Mines" instance=ExtResource( 6 )]
+position = Vector2( 112, 440 )
+
+[node name="SpaceMine14" parent="Mines" instance=ExtResource( 6 )]
+position = Vector2( 184, 544 )
+
+[node name="SpaceMine15" parent="Mines" instance=ExtResource( 6 )]
+position = Vector2( 256, 392 )
+
+[node name="SpaceMine16" parent="Mines" instance=ExtResource( 6 )]
+position = Vector2( 288, 488 )
+
+[node name="SpaceMine17" parent="Mines" instance=ExtResource( 6 )]
+position = Vector2( 32, 552 )
+
+[node name="SpaceMine18" parent="Mines" instance=ExtResource( 6 )]
+position = Vector2( 360, 560 )
+
+[node name="SpaceMine19" parent="Mines" instance=ExtResource( 6 )]
+position = Vector2( 384, 416 )
+
+[node name="SpaceMine20" parent="Mines" instance=ExtResource( 6 )]
+position = Vector2( 528, 440 )
+
+[node name="SpaceMine21" parent="Mines" instance=ExtResource( 6 )]
+position = Vector2( 488, 328 )
+
+[node name="SpaceMine22" parent="Mines" instance=ExtResource( 6 )]
+position = Vector2( 528, 56 )
+
+[node name="SpaceMine23" parent="Mines" instance=ExtResource( 6 )]
+position = Vector2( 584, 264 )
+
+[node name="SpaceMine24" parent="Mines" instance=ExtResource( 6 )]
+position = Vector2( 512, 544 )
+
+[node name="SpaceMine25" parent="Mines" instance=ExtResource( 6 )]
+position = Vector2( 72, 96 )
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource( 1 )
+
+[node name="PeriodicPathFollow" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 353.124, 528 )
+rotation = -1.5708
+offset = 1481.58
+rotate = false
+script = ExtResource( 7 )
+period = 120
+
+[node name="Exit" parent="Path2D/PeriodicPathFollow" instance=ExtResource( 4 )]
+rotation = 1.5708
+exit_to = ExtResource( 10 )
+
+[connection signal="player_moved" from="Arrow/PlayerController" to="Enemy/EnemyController" method="_on_PlayerController_player_moved"]

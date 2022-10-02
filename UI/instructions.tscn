@@ -52,7 +52,7 @@ margin_right = 400.0
 margin_bottom = 358.0
 rect_min_size = Vector2( 400, 0 )
 size_flags_vertical = 1
-text = "Use arrow keys/WASD to guid the lost spaceship.
+text = "Use arrow keys/WASD to guide your spaceship.
 
 
 

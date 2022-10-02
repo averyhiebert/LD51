@@ -23,31 +23,33 @@ anchor_bottom = 1.0
 
 [node name="MainVbox" type="VBoxContainer" parent="CanvasLayer/Control/CenterContainer"]
 margin_left = 99.0
-margin_top = 227.0
+margin_top = 208.0
 margin_right = 499.0
-margin_bottom = 373.0
+margin_bottom = 392.0
 
 [node name="MainTextLabel" type="Label" parent="CanvasLayer/Control/CenterContainer/MainVbox"]
 margin_right = 400.0
-margin_bottom = 35.0
+margin_bottom = 73.0
 rect_min_size = Vector2( 400, 0 )
 size_flags_vertical = 1
-text = "Or,
-Radars of the Lost Ark"
+text = "RADAR RIDER
+Radars
+of the
+Lost Barque"
 align = 1
 autowrap = true
 
 [node name="SpacerLabel" type="Label" parent="CanvasLayer/Control/CenterContainer/MainVbox"]
-margin_top = 39.0
+margin_top = 77.0
 margin_right = 400.0
-margin_bottom = 74.0
+margin_bottom = 112.0
 text = "
 "
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control/CenterContainer/MainVbox"]
-margin_top = 78.0
+margin_top = 116.0
 margin_right = 400.0
-margin_bottom = 146.0
+margin_bottom = 184.0
 
 [node name="ButtonsVbox" type="VBoxContainer" parent="CanvasLayer/Control/CenterContainer/MainVbox/CenterContainer"]
 margin_left = 96.0

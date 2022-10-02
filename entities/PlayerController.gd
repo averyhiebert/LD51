@@ -77,5 +77,15 @@ func player_die():
 	player.die() # Trigger death particles
 	dying = true
 	print("Player died")
-	yield(get_tree().create_timer(1), "timeout")
+	#var timer = get_tree().create_timer(1)
+	
+	var timer = Timer.new()
+	timer.connect("timeout",self,"restart_scene")
+	timer.wait_time = 1
+	timer.one_shot = true
+	add_child(timer)
+	timer.start()
+
+func restart_scene():
 	get_tree().reload_current_scene()
+	

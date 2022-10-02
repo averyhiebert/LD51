@@ -1,0 +1,117 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://level_stuff/LevelBackground.tscn" type="PackedScene" id=1]
+[ext_resource path="res://entities/GreenArrow.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scanner/RadarScanner.tscn" type="PackedScene" id=3]
+[ext_resource path="res://entities/Exit.tscn" type="PackedScene" id=4]
+[ext_resource path="res://entities/PlayerController.gd" type="Script" id=5]
+[ext_resource path="res://entities/SpaceMine.tscn" type="PackedScene" id=6]
+[ext_resource path="res://entities/PeriodicPathFollow.gd" type="Script" id=7]
+[ext_resource path="res://entities/EnemyConroller.gd" type="Script" id=8]
+[ext_resource path="res://entities/Enemy.tscn" type="PackedScene" id=9]
+[ext_resource path="res://levels/Level7.tscn" type="PackedScene" id=10]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 128, 320, 0, 0, 0, 0, 128, 192, 0, 0, 0, 0, 192, 192, 0, 0, 0, 0, 192, 128, 0, 0, 0, 0, 64, 128, 0, 0, 0, 0, 64, 320, 0, 0, 0, 0, 128, 320 )
+}
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( -19.478, 17.9797, 19.478, -17.9797, 384, 64, -46.4475, -38.2068, 46.4475, 38.2068, 464, 64, 69.6713, -56.9357, -69.6713, 56.9357, 472, 144, 29.9661, 53.9391, -29.9661, -53.9391, 384, 144, -34.4611, 32.9628, 34.4611, -32.9628, 384, 64 )
+}
+
+[sub_resource type="Curve2D" id=3]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 384, 384, 0, 0, 0, 0, 384, 448, 0, 0, 0, 0, 320, 448, 0, 0, 0, 0, 384, 512, 0, 0, 0, 0, 448, 512, 0, 0, 0, 0, 416, 480, 0, 0, 0, 0, 512, 480, 0, 0, 0, 0, 448, 416, 0, 0, 0, 0, 448, 384, 0, 0, 0, 0, 384, 384 )
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="LevelBackground" parent="." instance=ExtResource( 1 )]
+level_name = "Mirage"
+
+[node name="RadarScanner" parent="." instance=ExtResource( 3 )]
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 192, 480 )
+
+[node name="PlayerController" type="Node" parent="Player"]
+script = ExtResource( 5 )
+
+[node name="Enemy" parent="." instance=ExtResource( 9 )]
+position = Vector2( 456, 280 )
+
+[node name="EnemyController" type="Node" parent="Enemy"]
+script = ExtResource( 8 )
+
+[node name="Exit" parent="." instance=ExtResource( 4 )]
+position = Vector2( 512, 56 )
+exit_to = ExtResource( 10 )
+
+[node name="Mines" type="Node2D" parent="."]
+
+[node name="SpaceMine" parent="Mines" instance=ExtResource( 6 )]
+position = Vector2( 104, 416 )
+
+[node name="SpaceMine2" parent="Mines" instance=ExtResource( 6 )]
+position = Vector2( 88, 96 )
+
+[node name="SpaceMine3" parent="Mines" instance=ExtResource( 6 )]
+position = Vector2( 256, 224 )
+
+[node name="SpaceMine4" parent="Mines" instance=ExtResource( 6 )]
+position = Vector2( 528, 168 )
+
+[node name="SpaceMine5" parent="Mines" instance=ExtResource( 6 )]
+position = Vector2( 424, 104 )
+
+[node name="SpaceMine6" parent="Mines" instance=ExtResource( 6 )]
+position = Vector2( 400, 544 )
+
+[node name="SpaceMine7" parent="Mines" instance=ExtResource( 6 )]
+position = Vector2( 400, 344 )
+
+[node name="FakePlayers" type="Node2D" parent="."]
+
+[node name="Path2D" type="Path2D" parent="FakePlayers"]
+curve = SubResource( 1 )
+
+[node name="PeriodicPathFollow" type="PathFollow2D" parent="FakePlayers/Path2D"]
+position = Vector2( 128, 320 )
+rotation = -1.5708
+script = ExtResource( 7 )
+period = 13
+
+[node name="Arrow" parent="FakePlayers/Path2D/PeriodicPathFollow" instance=ExtResource( 2 )]
+
+[node name="Path2D2" type="Path2D" parent="FakePlayers"]
+curve = SubResource( 2 )
+
+[node name="PeriodicPathFollow" type="PathFollow2D" parent="FakePlayers/Path2D2"]
+position = Vector2( 384, 64 )
+rotation = -0.754298
+script = ExtResource( 7 )
+period = 12
+
+[node name="Arrow" parent="FakePlayers/Path2D2/PeriodicPathFollow" instance=ExtResource( 2 )]
+
+[node name="Path2D3" type="Path2D" parent="FakePlayers"]
+curve = SubResource( 3 )
+
+[node name="PeriodicPathFollow" type="PathFollow2D" parent="FakePlayers/Path2D3"]
+position = Vector2( 384, 384 )
+rotation = 1.5708
+script = ExtResource( 7 )
+period = 15
+
+[node name="Arrow" parent="FakePlayers/Path2D3/PeriodicPathFollow" instance=ExtResource( 2 )]
+
+[node name="Arrow" parent="FakePlayers" instance=ExtResource( 2 )]
+position = Vector2( 240, 360 )
+rotation = 3.14159
+
+[node name="Arrow2" parent="FakePlayers" instance=ExtResource( 2 )]
+position = Vector2( 544, 408 )
+
+[connection signal="player_moved" from="Player/PlayerController" to="Enemy/EnemyController" method="_on_PlayerController_player_moved"]

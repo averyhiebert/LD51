@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://level_stuff/LevelBackground.tscn" type="PackedScene" id=1]
+[ext_resource path="res://entities/GreenArrow.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scanner/RadarScanner.tscn" type="PackedScene" id=3]
+[ext_resource path="res://entities/Exit.tscn" type="PackedScene" id=4]
+[ext_resource path="res://entities/PlayerController.gd" type="Script" id=5]
+[ext_resource path="res://UI/EndScreen.tscn" type="PackedScene" id=6]
+[ext_resource path="res://entities/EnemyConroller.gd" type="Script" id=8]
+[ext_resource path="res://entities/Enemy.tscn" type="PackedScene" id=9]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="LevelBackground" parent="." instance=ExtResource( 1 )]
+level_name = "The Lions' Den"
+
+[node name="RadarScanner" parent="." instance=ExtResource( 3 )]
+
+[node name="Arrow" parent="." instance=ExtResource( 2 )]
+position = Vector2( 96, 520 )
+
+[node name="PlayerController" type="Node" parent="Arrow"]
+script = ExtResource( 5 )
+
+[node name="Enemy" parent="." instance=ExtResource( 9 )]
+position = Vector2( 472, 88 )
+
+[node name="EnemyController" type="Node" parent="Enemy"]
+script = ExtResource( 8 )
+
+[node name="Enemy2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 496, 488 )
+
+[node name="EnemyController" type="Node" parent="Enemy2"]
+script = ExtResource( 8 )
+
+[node name="Enemy3" parent="." instance=ExtResource( 9 )]
+position = Vector2( 88, 96 )
+
+[node name="EnemyController" type="Node" parent="Enemy3"]
+script = ExtResource( 8 )
+
+[node name="Enemy4" parent="." instance=ExtResource( 9 )]
+position = Vector2( 336, 304 )
+
+[node name="EnemyController" type="Node" parent="Enemy4"]
+script = ExtResource( 8 )
+
+[node name="Mines" type="Node2D" parent="."]
+
+[node name="Exit" parent="." instance=ExtResource( 4 )]
+position = Vector2( 520, 72 )
+exit_to = ExtResource( 6 )
+
+[connection signal="player_moved" from="Arrow/PlayerController" to="Enemy/EnemyController" method="_on_PlayerController_player_moved"]
+[connection signal="player_moved" from="Arrow/PlayerController" to="Enemy2/EnemyController" method="_on_PlayerController_player_moved"]
+[connection signal="player_moved" from="Arrow/PlayerController" to="Enemy3/EnemyController" method="_on_PlayerController_player_moved"]
+[connection signal="player_moved" from="Arrow/PlayerController" to="Enemy4/EnemyController" method="_on_PlayerController_player_moved"]

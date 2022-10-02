@@ -6,13 +6,14 @@
 [ext_resource path="res://entities/Exit.tscn" type="PackedScene" id=4]
 [ext_resource path="res://entities/PlayerController.gd" type="Script" id=5]
 [ext_resource path="res://entities/SpaceMine.tscn" type="PackedScene" id=6]
-[ext_resource path="res://UI/EndScreen.tscn" type="PackedScene" id=7]
+[ext_resource path="res://levels/Level4.tscn" type="PackedScene" id=7]
 [ext_resource path="res://entities/EnemyConroller.gd" type="Script" id=8]
 [ext_resource path="res://entities/Enemy.tscn" type="PackedScene" id=9]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="LevelBackground" parent="." instance=ExtResource( 1 )]
+level_name = "Not Alone"
 
 [node name="RadarScanner" parent="." instance=ExtResource( 3 )]
 

@@ -5,11 +5,12 @@
 [ext_resource path="res://entities/SpaceMine.tscn" type="PackedScene" id=4]
 [ext_resource path="res://entities/Exit.tscn" type="PackedScene" id=5]
 [ext_resource path="res://entities/PlayerController.gd" type="Script" id=6]
-[ext_resource path="res://levels/BasicLevel.tscn" type="PackedScene" id=7]
+[ext_resource path="res://levels/Level0.tscn" type="PackedScene" id=7]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="LevelBackground" parent="." instance=ExtResource( 2 )]
+level_name = "Training Exercise"
 
 [node name="Arrow" parent="." instance=ExtResource( 3 )]
 position = Vector2( 46, 297 )

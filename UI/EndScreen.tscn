@@ -23,32 +23,32 @@ anchor_bottom = 1.0
 
 [node name="MainVbox" type="VBoxContainer" parent="CanvasLayer/Control/CenterContainer"]
 margin_left = 99.0
-margin_top = 207.0
+margin_top = 235.0
 margin_right = 499.0
-margin_bottom = 393.0
+margin_bottom = 364.0
 
 [node name="MainTextLabel" type="Label" parent="CanvasLayer/Control/CenterContainer/MainVbox"]
 margin_right = 400.0
-margin_bottom = 111.0
+margin_bottom = 54.0
 rect_min_size = Vector2( 400, 0 )
 size_flags_vertical = 1
 text = "Congratulations!
 
-Thanks to you, the lost spaceship navigated safely to the nearest spaceport."
+You made it out alive!"
 align = 1
 autowrap = true
 
 [node name="SpacerLabel" type="Label" parent="CanvasLayer/Control/CenterContainer/MainVbox"]
-margin_top = 115.0
+margin_top = 58.0
 margin_right = 400.0
-margin_bottom = 150.0
+margin_bottom = 93.0
 text = "
 "
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control/CenterContainer/MainVbox"]
-margin_top = 154.0
+margin_top = 97.0
 margin_right = 400.0
-margin_bottom = 186.0
+margin_bottom = 129.0
 
 [node name="ButtonsVbox" type="VBoxContainer" parent="CanvasLayer/Control/CenterContainer/MainVbox/CenterContainer"]
 margin_left = 120.0
